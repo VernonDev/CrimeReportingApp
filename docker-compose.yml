@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgis/postgis:15-3.3
+    container_name: crime-reporter-db
+    environment:
+      POSTGRES_USER: crimeapp
+      POSTGRES_PASSWORD: localdev123
+      POSTGRES_DB: crime_reports
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
